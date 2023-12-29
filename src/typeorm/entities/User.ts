@@ -1,5 +1,6 @@
-import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { v4 as uuidv4} from 'uuid'
+import { Profile } from "./Profile";
  
 @Entity({name: 'users'})
 export class User {
@@ -25,4 +26,8 @@ export class User {
         this.id = uuidv4();
         this.createdAt =new Date()
     }
+
+    @OneToOne(()=>Profile)
+    @JoinColumn()
+    profile:Profile
 }
