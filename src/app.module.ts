@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './typeorm/entities/User';
 import { UsersModule } from './users/users.module';
 import { Profile } from './typeorm/entities/Profile';
+import { Post } from './typeorm/entities/Post';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -12,9 +13,9 @@ import { Profile } from './typeorm/entities/Profile';
     host:'localhost',
     port:3306,
     username:'root',
-    password:'P@ssw0rd009!',
+    password:'UINw580i!',
     database:'nestjstypeormmysql',
-    entities:[User,Profile],
+    entities:[User,Profile, Post],
     synchronize:true
   }), 
   UsersModule],

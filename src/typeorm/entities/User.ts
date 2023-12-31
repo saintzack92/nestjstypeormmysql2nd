@@ -1,6 +1,7 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { v4 as uuidv4} from 'uuid'
 import { Profile } from "./Profile";
+import { Post } from "./Post";
  
 @Entity({name: 'users'})
 export class User {
@@ -30,4 +31,7 @@ export class User {
     @OneToOne(()=>Profile)
     @JoinColumn()
     profile:Profile
+
+    @OneToMany(()=> Post, ((post)=>post.user))
+    posts:Post[]
 }
